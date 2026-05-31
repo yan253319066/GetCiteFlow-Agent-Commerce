@@ -1,0 +1,6 @@
+{
+  "name": "GetCiteFlow Agent Commerce",
+  "description": "Turn any website into an AI Agent-ready store. Generate configurations, verify placement, and enable agents to shop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
