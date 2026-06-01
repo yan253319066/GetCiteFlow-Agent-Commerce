@@ -586,7 +586,11 @@ export default function GetCiteFlowPage() {
       {/* Main Header / Navigation */}
       <header className="sticky top-0 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/60 py-3.5 px-4 sm:px-6 z-30 shadow-xl">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 cursor-pointer text-left"
+          >
             <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 ring-1 ring-white/10">
               <Image src="/logo.png" alt="GetCiteFlow" width={40} height={40} className="w-full h-full object-cover" />
             </div>
@@ -599,7 +603,7 @@ export default function GetCiteFlowPage() {
               </h1>
               <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium tracking-wide leading-none mt-0.5 max-sm:truncate max-sm:max-w-[150px] whitespace-nowrap">Auto-agent definitions scanner & wallet proxy</p>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 p-1 bg-slate-900/40 rounded-xl border border-slate-900/50">
@@ -1940,12 +1944,16 @@ export default function GetCiteFlowPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 animate-fade-in">
             {/* Column 1: Brand & Bio */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center gap-2.5 cursor-pointer"
+              >
                 <div className="w-8 h-8 rounded-lg overflow-hidden">
                   <Image src="/logo.png" alt="GetCiteFlow" width={32} height={32} className="w-full h-full object-cover" />
                 </div>
                 <span className="text-base font-bold text-white tracking-tight">GetCiteFlow</span>
-              </div>
+              </button>
               <p className="text-xs text-slate-400 leading-relaxed font-semibold">
                 Autonomous agent standard schema generator and Base-native checkout pipeline for AI agents, enabling instant non-custodial USDT/USDC settlement.
               </p>
