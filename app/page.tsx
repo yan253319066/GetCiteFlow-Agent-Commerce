@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import {
   Globe,
   Search,
@@ -577,8 +578,8 @@ export default function GetCiteFlowPage() {
       <header className="sticky top-0 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/60 py-3.5 px-4 sm:px-6 z-30 shadow-xl">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
-            <div className="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-indigo-500/20 tracking-wider text-xl shrink-0 ring-1 ring-white/10">
-              G
+            <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 ring-1 ring-white/10">
+              <Image src="/logo.png" alt="GetCiteFlow" width={40} height={40} className="w-full h-full object-cover" />
             </div>
             <div className="min-w-0">
               <h1 className="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2 min-w-0">
@@ -1901,8 +1902,8 @@ export default function GetCiteFlowPage() {
             {/* Column 1: Brand & Bio */}
             <div className="space-y-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-extrabold tracking-wider text-base">
-                  G
+                <div className="w-8 h-8 rounded-lg overflow-hidden">
+                  <Image src="/logo.png" alt="GetCiteFlow" width={32} height={32} className="w-full h-full object-cover" />
                 </div>
                 <span className="text-base font-bold text-white tracking-tight">GetCiteFlow</span>
               </div>
