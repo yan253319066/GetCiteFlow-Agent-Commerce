@@ -182,7 +182,7 @@ export default function GetCiteFlowPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Active Section State for Navigation Highlighting
-  const [activeSection, setActiveSection] = useState<string>("manifest-generator");
+  const [activeSection, setActiveSection] = useState<string>("");
 
   // Waitlist
   const [waitlistEmail, setWaitlistEmail] = useState("");
@@ -197,14 +197,22 @@ export default function GetCiteFlowPage() {
     }
   }, [chatMessages]);
 
+  // Scroll to top on initial mount to prevent browser scroll restoration
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Automatically track scrolling to highlight navigation items
   useEffect(() => {
     const sections = ["how-it-works", "manifest-generator", "readiness-verification", "agent-sandbox"];
     
-    // Fallback: If we are near the very top of the page, highlight manifest-generator
+    // Fallback: near the top, highlight nothing
     const handleScrollFallback = () => {
       if (window.scrollY < 300) {
-        setActiveSection("manifest-generator");
+        setActiveSection("");
       }
     };
     window.addEventListener("scroll", handleScrollFallback, { passive: true });
