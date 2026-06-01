@@ -34,105 +34,36 @@ function getFallbackConfig(urlString: string) {
     }
   }
 
-  // Choose products depending on name keywords
+  // Always map to AI Computing & APIs for Scheme A (Compute Credits)
+  category = "AI Computing & APIs";
   const lowerName = storeName.toLowerCase();
+  if (!lowerName.includes("ai") && !lowerName.includes("compute") && !lowerName.includes("node") && !lowerName.includes("registry") && !lowerName.includes("api") && !lowerName.includes("cloud")) {
+    storeName = `${storeName} Compute Node`;
+  }
+
   let products = [
     {
-      id: "product-1",
-      name: "Minimalist Leather Cardholder",
-      price: 49,
+      id: "credits-starter",
+      name: `Compute Credits (Starter Pack - 1,000 Runs)`,
+      price: 10,
       currency: currency,
       availability: "in_stock"
     },
     {
-      id: "product-2",
-      name: "Ergonomic Desk Organizer",
-      price: 89,
+      id: "credits-dev",
+      name: `Compute Credits (Developer Pack - 10,000 Runs)`,
+      price: 80,
+      currency: currency,
+      availability: "in_stock"
+    },
+    {
+      id: "credits-pro",
+      name: `Compute Credits (Pro Pack - 50,000 Runs)`,
+      price: 350,
       currency: currency,
       availability: "in_stock"
     }
   ];
-
-  if (lowerName.includes("phone") || lowerName.includes("tech") || lowerName.includes("gear") || lowerName.includes("gadget") || lowerName.includes("mobile") || lowerName.includes("electronic")) {
-    category = "Electronics & Gadgets";
-    products = [
-      {
-        id: "iphone17",
-        name: "iPhone 17 Pro Max",
-        price: 1199,
-        currency: currency,
-        availability: "in_stock"
-      },
-      {
-        id: "cyber-charg-65",
-        name: "CyberCharge 65W GaN Power Adapter",
-        price: 45,
-        currency: currency,
-        availability: "in_stock"
-      },
-      {
-        id: "airbuds-x",
-        name: "AirBuds X Noise Cancelling Earphones",
-        price: 149,
-        currency: currency,
-        availability: "in_stock"
-      }
-    ];
-  } else if (lowerName.includes("shoe") || lowerName.includes("kick") || lowerName.includes("foot") || lowerName.includes("sport") || lowerName.includes("run") || lowerName.includes("fit")) {
-    category = "Sports & Footwear";
-    products = [
-      {
-        id: "trailblazer-v2",
-        name: "Trailblazer V2 Aerobic Running Shoes",
-        price: 135,
-        currency: currency,
-        availability: "in_stock"
-      },
-      {
-        id: "hydro-flask-32",
-        name: "Insulated Sports Hydro Flask (32oz)",
-        price: 34,
-        currency: currency,
-        availability: "in_stock"
-      }
-    ];
-  } else if (lowerName.includes("coffee") || lowerName.includes("cafe") || lowerName.includes("bean") || lowerName.includes("brew") || lowerName.includes("roast")) {
-    category = "Artisanal Coffee & Roasters";
-    products = [
-      {
-        id: "single-origin-ethiopia",
-        name: "Single-Origin Ethiopian Yirgacheffe Beans (500g)",
-        price: 26,
-        currency: currency,
-        availability: "in_stock"
-      },
-      {
-        id: "barista-pour-over-kettle",
-        name: "Barista Precision Gooseneck Pour-Over Kettle",
-        price: 68,
-        currency: currency,
-        availability: "in_stock"
-      }
-    ];
-  } else if (lowerName.includes("apparel") || lowerName.includes("cloth") || lowerName.includes("wear") || lowerName.includes("fit") || lowerName.includes("boutique") || lowerName.includes("style")) {
-    category = "Fashion & Apparel";
-    products = [
-      {
-        id: "classic-heavyweight-hoodie",
-        name: "Signature Classic Heavyweight Hoodie",
-        price: 85,
-        currency: currency,
-        availability: "in_stock"
-      },
-      {
-        id: "oversized-organic-tee",
-        name: "Unisex Oversized Organic Cotton Tee",
-        price: 38,
-        currency: currency,
-        availability: "in_stock"
-      }
-    ];
-  }
 
   return {
     websiteUrl: urlString,
@@ -151,9 +82,9 @@ function getFallbackConfig(urlString: string) {
     products,
     x402: {
       payment_method: "x402",
-      currency: "USDT",
-      network: "TRON",
-      merchant: `T${Array.from({ length: 33 }, () => "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789".charAt(Math.floor(Math.random() * 58))).join("")}`
+      currency: "USDT/USDC",
+      network: "Base",
+      merchant: `0x${Array.from({ length: 40 }, () => "0123456789abcdefABCDEF".charAt(Math.floor(Math.random() * 22))).join("")}`
     }
   };
 }
@@ -183,12 +114,14 @@ export async function POST(req: NextRequest) {
 
     const systemPrompt = `
 You are a highly capable AI Assistant specializing in E-Commerce Website Analysis for Agent Commerce.
-Your goal is to look at a user-inputted website URL (e.g. "https://retro-coffee.com" or "https://futurephone.io"), extract a realistic Brand/Store name, select a logical currency (e.g. USD, EUR, JPY depending on domain/global defaults), identify its store type (e.g., Electronics, Artisanal Coffee, Fashion & Apparel), and forge a set of 1-3 hyper-realistic, theme-specific products that this store would sell.
+Your goal is to look at a user-inputted website URL (e.g. "https://yourstore.com"), extract a realistic Brand/Store name, select a logical currency (e.g. USD, EUR, JPY depending on domain/global defaults), always set its store type to "AI Computing & APIs", and forge a set of 1-3 hyper-realistic AI Compute Credit packages, Run quotas, or Developer Tier runs tailored for this merchant.
+
+If the merchant's parsed website name doesn't already suggest an AI computing platform, append a professional modifier like "Compute Registry" or "AI Compute Node" to the extracted brand name (e.g., "Yourstore" becomes "Yourstore Compute Node").
 
 Return a JSON object that strictly adheres to the following structure:
 {
   "storeName": "Name of the Store",
-  "storeType": "Niche category of the store (e.g. Artisanal Espresso, High-End Mobile Gears, Eco-Friendly Apparel)",
+  "storeType": "AI Computing & APIs",
   "currency": "USD" or logical currency code,
   "agent_commerce": {
     "store_name": "Name of the Store",
@@ -199,18 +132,32 @@ Return a JSON object that strictly adheres to the following structure:
   },
   "products": [
     {
-      "id": "item-id-slug",
-      "name": "Full Product Name",
-      "price": number,
+      "id": "credits-starter",
+      "name": "Compute Credits (Starter Pack - 1,000 Runs)",
+      "price": 10,
+      "currency": "USD" or logical currency,
+      "availability": "in_stock"
+    },
+    {
+      "id": "credits-dev",
+      "name": "Compute Credits (Developer Pack - 10,000 Runs)",
+      "price": 80,
+      "currency": "USD" or logical currency,
+      "availability": "in_stock"
+    },
+    {
+      "id": "credits-pro",
+      "name": "Compute Credits (Pro Pack - 50,000 Runs)",
+      "price": 350,
       "currency": "USD" or logical currency,
       "availability": "in_stock"
     }
   ],
   "x402": {
     "payment_method": "x402",
-    "currency": "USDT",
-    "network": "TRON",
-    "merchant": "A randomized secure-looking TRON address (e.g. starting with T followed by 33 characters)"
+    "currency": "USDT/USDC",
+    "network": "Base",
+    "merchant": "A randomized secure-looking Base EVM address (e.g. starting with 0x followed by 40 hexadecimal characters)"
   }
 }
 
@@ -258,9 +205,9 @@ Do not include any extra thoughts, markdown formatting, or text outside the JSON
         ],
         x402: parsedConfig.x402 || {
           payment_method: "x402",
-          currency: "USDT",
-          network: "TRON",
-          merchant: "TTr7Z8n5Fw3Q8MvXb9rZsPf7N1qL9p"
+          currency: "USDT/USDC",
+          network: "Base",
+          merchant: "0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
         }
       });
     } catch (parseError) {
