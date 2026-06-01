@@ -2,6 +2,8 @@
 
 > Turn any website into an AI Agent-ready store. Generate agent commerce configurations, verify placement, and enable AI agents to browse, select, and purchase products automatically.
 
+Last updated: June 2026
+
 ## What It Is
 
 GetCiteFlow Agent Commerce is a web-based tool that crawls any e-commerce website, detects products and payment methods, and outputs standardized JSON manifests that enable AI agents to purchase products autonomously.
@@ -38,4 +40,12 @@ GetCiteFlow Agent Commerce is a web-based tool that crawls any e-commerce websit
 
 ## Pricing
 
-Currently in V1 development — join the waitlist for access.
+Completely free during V1 development. No credit card required. See /pricing.md for full details.
+
+## Key Statistics
+
+- Generates 3 standardized JSON manifest files per scan (agent-commerce config, products feed, x402 payment gateway)
+- Supports any e-commerce website with a defined product catalog and checkout flow
+- Uses x402 non-custodial payment protocol on Base blockchain (USDT/USDC)
+- Outputs static JSON files — no backend or database modifications required
+- Compatible with all major AI agent frameworks

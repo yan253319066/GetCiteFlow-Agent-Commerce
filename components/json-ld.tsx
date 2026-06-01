@@ -48,6 +48,54 @@ export function JsonLd() {
           },
         })),
       },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        name: `${siteName} Agent Commerce`,
+        url: siteUrl,
+      },
+      {
+        '@type': 'HowTo',
+        name: 'How to Make Your Website AI Agent-Ready with GetCiteFlow',
+        description:
+          'Generate agent commerce configurations for any website, enabling AI agents to discover, browse, and purchase products autonomously.',
+        step: [
+          {
+            '@type': 'HowToStep',
+            position: 1,
+            name: 'Enter your website URL',
+            text: 'Input your store URL into the GetCiteFlow manifest generator on the homepage.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 2,
+            name: 'AI analyzes your store',
+            text: 'The AI engine crawls your product catalog, detects checkout endpoints and payment providers, then generates three standardized JSON manifest files.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 3,
+            name: 'Upload manifests to your server',
+            text: 'Place the generated JSON files in your server\'s public directory. No backend modifications required.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 4,
+            name: 'AI agents can now shop from your store',
+            text: 'Your store is discoverable by AI agents that can browse, select, and purchase products using the x402 payment protocol on the Base blockchain.',
+          },
+        ],
+      },
     ],
   };
 

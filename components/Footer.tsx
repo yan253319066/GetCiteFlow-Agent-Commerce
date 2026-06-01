@@ -86,11 +86,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left text-slate-500 text-[11px] font-semibold">
-          <div>
-            <p>© {new Date().getFullYear()} GetCiteFlow. Built for the autonomous AI agent commerce era over Base blockchain network.</p>
-            <p className="text-slate-600 mt-1">Non-custodial, peer-to-peer, secure static integration pipeline.</p>
-          </div>
+          <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left text-slate-500 text-[11px] font-semibold">
+            <div>
+              <p>© {new Date().getFullYear()} GetCiteFlow. Built for the autonomous AI agent commerce era over Base blockchain network.</p>
+              <p className="text-slate-600 mt-1">Non-custodial, peer-to-peer, secure static integration pipeline.</p>
+              <p className="text-slate-700 mt-2 text-[10px]">Last updated: June 2026</p>
+            </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-slate-400"><Lock className="w-3 h-3 text-emerald-400" /> Secure SSL</span>
             <span className="flex items-center gap-1 text-slate-400"><Shield className="w-3 h-3 text-indigo-400" /> Decentralized</span>

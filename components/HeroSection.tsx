@@ -24,14 +24,14 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mt-6 max-w-3xl mx-auto leading-[1.1]"
         >
           Turn Any Website Into An <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">Agent-Ready</span> Store
-        </motion.h2>
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-base sm:text-lg md:text-xl text-slate-400 mt-6 max-w-2xl mx-auto font-medium"
         >
-          Enable AI agents to discover, understand, and purchase products directly from your website. Complete V1 production-ready protocols.
+          GetCiteFlow Agent Commerce is a free AI-powered tool that crawls any e-commerce website, detects products and payment methods, and generates standardized JSON manifests. These manifests enable AI agents to discover, browse, and purchase products autonomously using the x402 payment protocol on the Base blockchain — with zero backend modifications required.
         </motion.p>
 
         <motion.div
