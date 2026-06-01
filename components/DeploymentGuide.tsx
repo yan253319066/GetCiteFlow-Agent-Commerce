@@ -1,7 +1,6 @@
 "use client";
 
 import { CheckCircle2, ChevronRight } from "lucide-react";
-import { useAppContext } from "@/lib/AppContext";
 
 const steps = [
   {
@@ -28,9 +27,6 @@ const steps = [
 ];
 
 export default function DeploymentGuide() {
-  const { config } = useAppContext();
-  if (!config) return null;
-
   return (
     <section className="border-y border-slate-800/80 bg-slate-950/40 py-16 px-6" id="how-it-works">
       <div className="max-w-5xl mx-auto w-full">

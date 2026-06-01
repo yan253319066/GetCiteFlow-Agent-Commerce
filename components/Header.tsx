@@ -9,14 +9,14 @@ export default function Header() {
   const {
     auth, setAuth, authModalOpen, setAuthModalOpen, setAuthEmail,
     isMobileMenuOpen, setIsMobileMenuOpen, activeSection,
-    handleScrollToSegment,
+    handleScrollToSegment, config,
   } = useAppContext();
 
   const navItems = [
-    { id: "how-it-works", label: "How It Works" },
-    { id: "manifest-generator", label: "Manifest Generator" },
-    { id: "readiness-verification", label: "Readiness Checker" },
-    { id: "agent-sandbox", label: "Agent Terminal" },
+    { id: "how-it-works", label: "How It Works", requiresConfig: false },
+    { id: "manifest-generator", label: "Manifest Generator", requiresConfig: false },
+    { id: "readiness-verification", label: "Readiness Checker", requiresConfig: true },
+    { id: "agent-sandbox", label: "Agent Terminal", requiresConfig: true },
   ];
 
   return (
@@ -42,20 +42,26 @@ export default function Header() {
         </button>
 
         <nav className="hidden md:flex items-center gap-1 p-1 bg-slate-900/40 rounded-xl border border-slate-900/50">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => handleScrollToSegment(e, item.id)}
-              className={`transition-all duration-300 cursor-pointer px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
-                activeSection === item.id
-                  ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm"
-                  : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const disabled = item.requiresConfig && !config;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => { if (!disabled) handleScrollToSegment(e, item.id); }}
+                className={`transition-all duration-300 px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
+                  disabled
+                    ? "text-slate-700 cursor-not-allowed border-transparent"
+                    : activeSection === item.id
+                      ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm cursor-pointer"
+                      : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30 cursor-pointer"
+                }`}
+                title={disabled ? "Generate a manifest first to unlock" : item.label}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-4 shrink-0">
@@ -104,20 +110,26 @@ export default function Header() {
             className="md:hidden overflow-hidden mt-3 pt-3 border-t border-slate-900"
           >
             <div className="flex flex-col gap-2.5 pb-3 text-sm font-semibold text-slate-300">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleScrollToSegment(e, item.id)}
-                  className={`py-2 px-3 rounded-xl transition-all duration-200 cursor-pointer border ${
-                    activeSection === item.id
-                      ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20"
-                      : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/50"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const disabled = item.requiresConfig && !config;
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={(e) => { if (!disabled) handleScrollToSegment(e, item.id); }}
+                    className={`py-2 px-3 rounded-xl transition-all duration-200 border ${
+                      disabled
+                        ? "text-slate-700 cursor-not-allowed border-transparent"
+                        : activeSection === item.id
+                          ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20 cursor-pointer"
+                          : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/50 cursor-pointer"
+                    }`}
+                    title={disabled ? "Generate a manifest first to unlock" : item.label}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
               <div className="border-t border-slate-900 pt-3 my-1 flex flex-col gap-3">
                 {auth ? (
                   <div className="flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-900">

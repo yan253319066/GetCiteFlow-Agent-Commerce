@@ -109,7 +109,7 @@ const defaultConfig: ConfigState = {
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [websiteUrl, setWebsiteUrl] = useState("https://yourstore.com");
-  const [config, setConfig] = useState<ConfigState | null>(defaultConfig);
+  const [config, setConfig] = useState<ConfigState | null>(null);
   const [generationStep, setGenerationStep] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationLogs, setGenerationLogs] = useState<string[]>([]);
