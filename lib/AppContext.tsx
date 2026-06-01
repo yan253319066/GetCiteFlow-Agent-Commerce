@@ -148,8 +148,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const chatBottomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (chatBottomRef.current) {
-      chatBottomRef.current.scrollIntoView({ behavior: "smooth" });
+    if (chatBottomRef.current?.parentElement) {
+      chatBottomRef.current.parentElement.scrollTop = chatBottomRef.current.parentElement.scrollHeight;
     }
   }, [chatMessages]);
 

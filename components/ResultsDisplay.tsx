@@ -73,7 +73,7 @@ export default function ResultsDisplay() {
   };
 
   return (
-    <section className="max-w-5xl mx-auto w-full px-6 mb-16">
+    <section className="max-w-5xl mx-auto w-full px-6 mb-16" id="generated-config">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
