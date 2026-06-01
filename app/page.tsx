@@ -574,20 +574,20 @@ export default function GetCiteFlowPage() {
 
 
       {/* Main Header / Navigation */}
-      <header className="sticky top-0 bg-slate-950/85 backdrop-blur-md border-b border-slate-900/90 py-4 px-6 z-30 shadow-lg">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-extrabold shadow-md shadow-indigo-500/20 tracking-wider text-lg">
+      <header className="sticky top-0 bg-slate-950/85 backdrop-blur-md border-b border-slate-900/90 py-4 px-4 sm:px-6 z-30 shadow-lg">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-extrabold shadow-md shadow-indigo-500/20 tracking-wider text-lg shrink-0">
               G
             </div>
-            <div>
-              <h1 className="text-lg font-bold tracking-tight text-white flex items-center gap-1.5">
-                GetCiteFlow
-                <span className="text-xs bg-indigo-500/10 text-indigo-400 font-bold px-2 py-0.5 rounded-full border border-indigo-500/25">
+            <div className="min-w-0">
+              <h1 className="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-1.5 min-w-0">
+                <span className="truncate">GetCiteFlow</span>
+                <span className="hidden sm:inline-block text-[10px] sm:text-xs bg-indigo-500/10 text-indigo-400 font-bold px-2 py-0.5 rounded-full border border-indigo-500/25 whitespace-nowrap shrink-0">
                   Agent Commerce V1
                 </span>
               </h1>
-              <p className="text-[10px] text-slate-400 leading-none">Auto-agent definitions scanner & wallet proxy</p>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-none truncate mt-0.5">Auto-agent definitions scanner & wallet proxy</p>
             </div>
           </div>
 
