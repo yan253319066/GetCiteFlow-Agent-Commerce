@@ -574,43 +574,43 @@ export default function GetCiteFlowPage() {
 
 
       {/* Main Header / Navigation */}
-      <header className="sticky top-0 bg-slate-950/85 backdrop-blur-md border-b border-slate-900/90 py-4 px-4 sm:px-6 z-30 shadow-lg">
+      <header className="sticky top-0 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/60 py-3.5 px-4 sm:px-6 z-30 shadow-xl">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-extrabold shadow-md shadow-indigo-500/20 tracking-wider text-lg shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+            <div className="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-indigo-500/20 tracking-wider text-xl shrink-0 ring-1 ring-white/10">
               G
             </div>
             <div className="min-w-0">
-              <h1 className="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-1.5 min-w-0">
-                <span className="truncate">GetCiteFlow</span>
-                <span className="hidden sm:inline-block text-[10px] sm:text-xs bg-indigo-500/10 text-indigo-400 font-bold px-2 py-0.5 rounded-full border border-indigo-500/25 whitespace-nowrap shrink-0">
-                  Agent Commerce V1
+              <h1 className="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2 min-w-0">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-200">GetCiteFlow</span>
+                <span className="hidden sm:inline-flex text-[9px] uppercase tracking-wider bg-indigo-500/10 text-indigo-400 font-bold px-2 py-0.5 rounded-md border border-indigo-500/20 whitespace-nowrap shrink-0">
+                  Agent Commerce
                 </span>
               </h1>
-              <p className="text-[9px] sm:text-[10px] text-slate-400 leading-none truncate mt-0.5">Auto-agent definitions scanner & wallet proxy</p>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium tracking-wide leading-none mt-0.5 max-sm:truncate max-sm:max-w-[150px] whitespace-nowrap">Auto-agent definitions scanner & wallet proxy</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-2 text-sm font-semibold text-slate-350">
+          <nav className="hidden md:flex items-center gap-1 p-1 bg-slate-900/40 rounded-xl border border-slate-900/50">
             <a
               href="#how-it-works"
               onClick={(e) => handleScrollToSegment(e, "how-it-works")}
-              className={`transition-all duration-250 cursor-pointer px-3 py-1.5 rounded-xl border ${
+              className={`transition-all duration-300 cursor-pointer px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
                 activeSection === "how-it-works"
-                  ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20 shadow-sm"
-                  : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/30"
+                  ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30"
               }`}
             >
-              How it works
+              How It Works
             </a>
             <a
               href="#manifest-generator"
               onClick={(e) => handleScrollToSegment(e, "manifest-generator")}
-              className={`transition-all duration-250 cursor-pointer px-3 py-1.5 rounded-xl border ${
+              className={`transition-all duration-300 cursor-pointer px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
                 activeSection === "manifest-generator"
-                  ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20 shadow-sm"
-                  : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/30"
+                  ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30"
               }`}
             >
               Manifest Generator
@@ -618,10 +618,10 @@ export default function GetCiteFlowPage() {
             <a
               href="#readiness-verification"
               onClick={(e) => handleScrollToSegment(e, "readiness-verification")}
-              className={`transition-all duration-250 cursor-pointer px-3 py-1.5 rounded-xl border ${
+              className={`transition-all duration-300 cursor-pointer px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
                 activeSection === "readiness-verification"
-                  ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20 shadow-sm"
-                  : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/30"
+                  ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30"
               }`}
             >
               Readiness Checker
@@ -629,10 +629,10 @@ export default function GetCiteFlowPage() {
             <a
               href="#agent-sandbox"
               onClick={(e) => handleScrollToSegment(e, "agent-sandbox")}
-              className={`transition-all duration-250 cursor-pointer px-3 py-1.5 rounded-xl border ${
+              className={`transition-all duration-300 cursor-pointer px-4 py-1.5 text-xs font-semibold tracking-wide rounded-lg whitespace-nowrap border ${
                 activeSection === "agent-sandbox"
-                  ? "text-indigo-400 bg-indigo-500/10 font-bold border-indigo-500/20 shadow-sm"
-                  : "text-slate-300 hover:text-white border-transparent hover:bg-slate-900/30"
+                  ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/15 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-900/30"
               }`}
             >
               Agent Terminal
@@ -640,13 +640,11 @@ export default function GetCiteFlowPage() {
           </nav>
 
           {/* Desktop CTA / Profile Connect */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4 shrink-0">
             {auth ? (
-              <div className="flex items-center gap-1.5 text-xs text-slate-300">
-                <span className="text-[10px] text-emerald-400 font-mono font-bold bg-emerald-500/10 px-2 py-0.5 border border-emerald-500/20 rounded">
-                  Active Owner
-                </span>
-                <span className="font-semibold truncate max-w-[110px]" title={auth.email}>
+              <div className="flex items-center gap-2 text-xs text-slate-305 bg-slate-900/40 px-3 py-1.5 rounded-xl border border-slate-900/50">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-semibold truncate max-w-[120px]" title={auth.email}>
                   {auth.email}
                 </span>
               </div>
@@ -657,19 +655,22 @@ export default function GetCiteFlowPage() {
                   setAuthEmail("1986.yanning@gmail.com");
                   setAuthModalOpen(true);
                 }}
-                className="text-xs text-indigo-400 hover:text-indigo-300 transition duration-250 cursor-pointer font-bold flex items-center gap-1"
+                className="text-xs text-slate-400 hover:text-white transition duration-250 cursor-pointer font-bold flex items-center gap-1.5 py-1.5 px-3 rounded-lg hover:bg-slate-900/40 border border-transparent hover:border-slate-800"
                 id="connect-profile-trigger"
               >
-                <User className="w-3.5 h-3.5" />
+                <User className="w-4 h-4 text-indigo-400" />
                 Connect Profile
               </button>
             )}
             <a
               href="#manifest-generator"
               onClick={(e) => handleScrollToSegment(e, "manifest-generator")}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition duration-250 rounded-xl px-4 py-2 shadow-md hover:shadow-indigo-600/15 cursor-pointer whitespace-nowrap"
+              className="relative group bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition duration-300 rounded-xl px-4.5 py-2.5 shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap overflow-hidden"
             >
-              Get Started
+              <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-violet-500 opacity-0 group-hover:opacity-100 transition duration-300" />
+              <span className="relative z-10 flex items-center gap-1">
+                Get Started
+              </span>
             </a>
           </div>
 
