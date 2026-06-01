@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import {faqData} from "@/lib/faq-data";
 import {
   Globe,
   Search,
@@ -1231,9 +1232,9 @@ export default function GetCiteFlowPage() {
               <span className="text-xs text-indigo-300 bg-indigo-500/10 rounded-full px-3 py-1 font-bold tracking-wider uppercase border border-indigo-500/20">
                 Installation Routine
               </span>
-              <h3 className="text-3xl font-extrabold tracking-tight text-white mt-3">
+              <h2 className="text-3xl font-extrabold tracking-tight text-white mt-3">
                 Protocol Deployment Guide
-              </h3>
+              </h2>
               <p className="text-slate-400 text-sm mt-3 max-w-xl mx-auto font-medium">
                 Upload configuration endpoints directly to your hosting directory or web servers backends parameters.
               </p>
@@ -1327,9 +1328,9 @@ export default function GetCiteFlowPage() {
                   <span className="text-[10px] uppercase bg-violet-500/10 text-violet-400 px-2.5 py-1 rounded font-extrabold tracking-widest border border-violet-500/20">
                     Agent Commerce Readiness Validator
                   </span>
-                  <h3 className="text-2xl font-extrabold tracking-tight text-white mt-2">
+                  <h2 className="text-2xl font-extrabold tracking-tight text-white mt-2">
                     Verify Website Placement
-                  </h3>
+                  </h2>
                 </div>
 
                 {/* Simulation Toggle Switch */}
@@ -1538,9 +1539,9 @@ export default function GetCiteFlowPage() {
               <span className="text-xs text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-full font-bold border border-indigo-500/20 uppercase tracking-wider">
                 Interactive Environment
               </span>
-              <h3 className="text-2xl font-extrabold tracking-tight text-white mt-2">
+              <h2 className="text-2xl font-extrabold tracking-tight text-white mt-2">
                 AI Agent Terminal Interface
-              </h3>
+              </h2>
               <p className="text-xs text-slate-400 mt-2 font-medium max-w-lg mx-auto">
                 Experience real autonomous agency search, catalog indexing, and secure token checkout flows over the Base protocol network.
               </p>
@@ -1689,6 +1690,36 @@ export default function GetCiteFlowPage() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <section className="py-20 px-6 max-w-3xl mx-auto w-full" id="faq">
+        <div className="text-center mb-12">
+          <span className="text-xs text-indigo-300 bg-indigo-500/10 rounded-full px-3 py-1 font-bold tracking-wider uppercase border border-indigo-500/20">
+            Frequently Asked Questions
+          </span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white mt-3">
+            Everything You Need To Know
+          </h2>
+        </div>
+        <div className="space-y-3">
+          {faqData.map((faq) => (
+            <details
+              key={faq.question}
+              className="group bg-slate-900/40 backdrop-blur-md rounded-2xl border border-slate-800/70 overflow-hidden transition-all duration-200 open:border-indigo-500/30"
+            >
+              <summary className="flex items-center justify-between p-5 cursor-pointer text-sm font-bold text-white tracking-tight hover:text-indigo-300 transition-colors list-none">
+                {faq.question}
+                <ChevronRight className="w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 group-open:rotate-90" />
+              </summary>
+              <div className="px-5 pb-5">
+                <p className="text-xs text-slate-400 leading-relaxed font-semibold">
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* CTA SECTION */}
       <section className="bg-slate-900 text-white py-16 px-6 text-center select-none relative overflow-hidden">
         {/* Subtle grid indicators */}
@@ -1698,9 +1729,9 @@ export default function GetCiteFlowPage() {
           <span className="text-[10px] uppercase font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 px-3 py-1.5 rounded-full select-all tracking-widest inline-block leading-none">
             GetCiteFlow Commerce Pipeline
           </span>
-          <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Be Ready For The Future Of AI Commerce
-          </h3>
+          </h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto font-medium">
             AI language models are purchasing items autonomously today. Do not lock yourself out from the agentic internet. Configure your verified gateway address.
           </p>
@@ -1956,6 +1987,15 @@ export default function GetCiteFlowPage() {
                     className="hover:text-white hover:underline transition duration-200 cursor-pointer"
                   >
                     Agent Terminal Sandbox
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    onClick={(e) => handleScrollToSegment(e, "faq")}
+                    className="hover:text-white hover:underline transition duration-200 cursor-pointer"
+                  >
+                    FAQ
                   </a>
                 </li>
               </ul>
