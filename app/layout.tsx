@@ -1,4 +1,5 @@
 import type {Metadata, Viewport} from 'next';
+import Script from 'next/script';
 import './globals.css';
 import {JsonLd} from '@/components/json-ld';
 import {siteUrl, siteName, siteDescription} from '@/lib/constants';
@@ -66,6 +67,18 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         {children}
         <JsonLd />
         <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BNC06DH9QP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BNC06DH9QP');
+          `}
+        </Script>
       </body>
     </html>
   );
